@@ -63,13 +63,13 @@ public class AIOStorageCell implements StorageCell {
         items.clear();
         ForgeRegistries.ITEMS.getValues().forEach(item -> {
             try {
-                assert !(item instanceof GameMasterBlockItem);
-                assert !(item instanceof AllItemCell);
-                assert !(item instanceof AllFluidCell);
-                assert !(item instanceof SpawnEggItem);
+                if (item instanceof GameMasterBlockItem) return;
+                if (item instanceof AllItemCell) return;
+                if (item instanceof AllFluidCell) return;
+                if (item instanceof SpawnEggItem) return;
                 ItemStack stack = item.getDefaultInstance();
                 items.add(stack);
-            } catch (Exception | AssertionError ignored) {}
+            } catch (Exception ignored) {}
         });
     }
 
