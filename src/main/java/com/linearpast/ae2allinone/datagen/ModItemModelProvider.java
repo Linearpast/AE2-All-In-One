@@ -22,5 +22,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         getBuilder("all_fluid_cell")
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
                 .texture("layer0", new ResourceLocation(Ae2AllInOne.MODID, "item/all_fluid_cell"));
+
+        getBuilder("all_chemical_cell")
+                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                .texture("layer0", new ResourceLocation(Ae2AllInOne.MODID, "item/all_chemical_cell"));
     }
 }

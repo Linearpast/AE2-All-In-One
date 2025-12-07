@@ -1,5 +1,6 @@
 package com.linearpast.ae2allinone;
 
+import com.linearpast.ae2allinone.compat.mekanism.MekanismItems;
 import com.linearpast.ae2allinone.item.AllFluidCell;
 import com.linearpast.ae2allinone.item.AllItemCell;
 import com.linearpast.ae2allinone.registry.CommonEvents;
@@ -36,6 +37,11 @@ public class Ae2AllInOne {
                     .displayItems((parameters, output) -> {
                         output.accept(ALL_ITEM_CELL.get());
                         output.accept(ALL_FLUID_CELL.get());
+                        if (MekanismItems.isRegistered()) {
+                            if (MekanismItems.ALL_CHEMICAL_CELL != null) {
+                                output.accept(MekanismItems.ALL_CHEMICAL_CELL.get());
+                            }
+                        }
                     })
                     .build());
 
@@ -45,6 +51,8 @@ public class Ae2AllInOne {
 
         ITEMS.register(modBus);
         CREATIVE_MODE_TABS.register(modBus);
+
+        MekanismItems.register(modBus);
 
         modBus.addListener(CommonEvents::setup);
     }

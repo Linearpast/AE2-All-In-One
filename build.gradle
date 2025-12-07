@@ -110,6 +110,8 @@ dependencies {
 
     implementation fg.deobf("curse.maven:applied-energistics-2-223794:5641282")
     implementation fg.deobf("curse.maven:guideme-1173950:7127447")
+    implementation fg.deobf("curse.maven:mekanism-268560:6552911")
+    implementation fg.deobf("curse.maven:applied-mekanistics-574300:7244744")
 }
 
 tasks.named('processResources', ProcessResources).configure {

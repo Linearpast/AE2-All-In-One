@@ -5,6 +5,7 @@ import com.linearpast.ae2allinone.cells.AIOCellHandler;
 import com.linearpast.ae2allinone.cells.AIOFluidCellHandler;
 import com.linearpast.ae2allinone.cells.AIOFluidStorageCell;
 import com.linearpast.ae2allinone.cells.AIOStorageCell;
+import com.linearpast.ae2allinone.compat.mekanism.MekanismCompat;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class CommonEvents {
@@ -15,6 +16,9 @@ public class CommonEvents {
 
             StorageCells.addCellHandler(AIOCellHandler.INSTANCE);
             StorageCells.addCellHandler(AIOFluidCellHandler.INSTANCE);
+
+            // Initialize Mekanism compatibility (if available)
+            MekanismCompat.init();
         });
     }
 }
